@@ -700,7 +700,7 @@ async def advantage_spell_chok(msg):
             if match:
                 gs_parsed.append(match.group(1))
     user = msg.from_user.id if msg.from_user else 0
-    😌movielist = []
+    movielist = []
     gs_parsed = list(dict.fromkeys(gs_parsed)) # removing duplicates https://stackoverflow.com/a/7961425
     if len(gs_parsed) > 3:
         gs_parsed = gs_parsed[:3]
@@ -708,9 +708,9 @@ async def advantage_spell_chok(msg):
         for mov in gs_parsed:
             imdb_s = await get_poster(mov.strip(), bulk=True) # searching each keyword in imdb
             if imdb_s:
-                😌movielist += [movie.get('😌title') for movie in imdb_s]
-    😌movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
-    😌movielist = list(dict.fromkeys(movielist)) # removing duplicates
+                movielist += [movie.get('😌title') for movie in imdb_s]
+    movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
+    movielist = list(dict.fromkeys(movielist)) # removing duplicates
     if not movielist:
           
         k = await msg.reply_video(
@@ -748,7 +748,7 @@ async def advantage_spell_chok(msg):
                     text=movie.strip(),
                     callback_data=f"spolling#{user}#{k}",
                 )
-            ] for k, movie in enumerate(😌movielist)]    
+            ] for k, movie in enumerate(movielist)]    
     btn.append(
             [
                 InlineKeyboardButton("⏪ Close", callback_data=f'spolling#{user}#close_spellcheck'),
