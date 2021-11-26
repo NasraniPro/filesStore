@@ -125,16 +125,16 @@ async def next_page(bot, query):
         off_set = offset - 10
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("⏪ BACK ⏪", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"📃 Pages {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages")]
+            [InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"📃 Pages {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages")]
         )
     elif off_set is None:
-        btn.append([InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"), InlineKeyboardButton("⏩ NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append([InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"), InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("⏪ BACK ⏪", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("⏪ BACK", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"),
-                InlineKeyboardButton("⏩ NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     try:
@@ -582,10 +582,7 @@ async def auto_filter(client, msg, spoll=False):
             files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
             if not files:
                 if SPELL_CHECK_REPLY:
-                    k = await advantage_spell_chok(msg)
-                    await asyncio.sleep(20)
-                    await k.delete()
-                    return
+                    return await advantage_spell_chok(msg)
                 else:
                     return
         else:
@@ -597,7 +594,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[📥{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"[😌{get_size(file.file_size)}] 🥰{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -622,7 +619,7 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="⏩NEXT ⏩",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
@@ -748,17 +745,30 @@ async def advantage_spell_chok(msg):
                     callback_data=f"spolling#{user}#{k}",
                 )
             ] for k, movie in enumerate(movielist)]
-    btn.append(
-            [
-                InlineKeyboardButton("⏪ CLOSE ⏪", callback_data=f'spolling#{user}#close_spellcheck'),
-                InlineKeyboardButton("⏩NEXT ⏩", url='https://t.me/bigmoviesworld')
-            ],
-        )  
-    k = await msg.reply_video(
-        video= "https://telegra.ph/file/ec5404d035924f1113d8d.mp4",
-        caption=f"<b>📍Hello:- സുഖമാണോ?</b>",       
-        reply_markup=InlineKeyboardMarkup(btn))
-    return k
+    btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
+    await msg.reply_video(
+    video= "https://telegra.ph/file/ec5404d035924f1113d8d.mp4",
+        caption=f"<b>📍Hello:- സുഖമാണോ?</b>"
+        f"<b><a href='https://t.me/kinzanoufal'>👇Admin</a></b>. \n\n"
+        f"<b>നിങ്ങൾ സിനിമ ചോദിക്കുന്നതിനു മുമ്പ് ടൈപ്പ് ചെയ്തത് ശരിയാണോന്ന് പരിശോധിക്കുക.👍അല്ലെങ്കിൽ മുകളിലുള്ള വീഡിയോ കണ്ടു അത് പോലെ അയക്കുക</b>(25 Sec)",
+        parse_mode="html",
+        reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton('𝙎𝙃𝘼𝙍𝙀', url="https://t.me/share/url?url=https%3A//t.me/share/url%3Furl%3Dhttps%253A//t.me/bigmoviesworld")
+                            ],
+                            [
+                                InlineKeyboardButton('𝙂𝙍𝙊𝙐𝙋', url="https://t.me/bigmoviesworld"),
+                                InlineKeyboardButton('𝙊𝙏𝙏 𝙍𝙀𝙇𝙀𝘼𝙎𝙀', url="https://t.me/bigmoviesworld")
+                            ],
+                            [
+                                InlineKeyboardButton('𝙎𝙐𝙋𝙋𝙊𝙍𝙏', switch_inline_query_current_chat=''),
+                                InlineKeyboardButton('𝘾𝙃𝘼𝙉𝙉𝙀𝙇', callback_data='close_data')
+                            ]
+                        ]
+                    )
+                )         
+        
     
                         
                     
