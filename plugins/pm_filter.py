@@ -758,8 +758,8 @@ async def advantage_spell_chok(msg):
                 InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld')
             ],
         )  
-    k = await msg.reply_video(
-        video= "https://telegra.ph/file/ec5404d035924f1113d8d.mp4",
+    k = await msg.reply_sticker(
+        sticker= "CAACAgUAAxkBAAJXA2GiaMWYAAEvGr39FQLCuU_qW4rH1AACHwADhq-BGkoDm80BdFrWIgQ",
         caption=f"<b>📍Hello:- സുഖമാണോ?</b>",       
         reply_markup=InlineKeyboardMarkup(btn))
     return k
