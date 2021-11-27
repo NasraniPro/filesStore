@@ -583,7 +583,7 @@ async def auto_filter(client, msg, spoll=False):
             if not files:
                 if SPELL_CHECK_REPLY:
                     k = await advantage_spell_chok(msg)
-                    await asyncio.sleep(20)
+                    await asyncio.sleep(30)
                     await k.delete()
                     return
                 else:
@@ -756,6 +756,9 @@ async def advantage_spell_chok(msg):
             [
                 InlineKeyboardButton("🔐𝐂𝐥𝐨𝐬𝐞🔐", callback_data=f'spolling#{user}#close_spellcheck'),
                 InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld')
+            ]
+            [
+                InlineKeyboardButton('𝙎𝙃𝘼𝙍𝙀', url="https://t.me/share/url?url=https%3A//t.me/share/url%3Furl%3Dhttps%253A//t.me/bigmoviesworld")
             ],
         )  
     k = await msg.reply_sticker(
