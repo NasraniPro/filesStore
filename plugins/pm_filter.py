@@ -755,7 +755,6 @@ async def advantage_spell_chok(msg):
     btn.append(
             [
                 InlineKeyboardButton("🔐𝐂𝐥𝐨𝐬𝐞🔐", callback_data=f'spolling#{user}#close_spellcheck'),
-            ]
                 InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld')       
             ],
         )  
