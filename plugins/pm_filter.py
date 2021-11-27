@@ -435,11 +435,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔗𝐌𝐚𝐧𝐮𝐚𝐥 𝐅𝐢𝐥𝐭𝐞𝐫🔗', callback_data='manuelfilter'),
             InlineKeyboardButton('🗂𝐀𝐮𝐭𝐨 𝐅𝐢𝐥𝐭𝐞𝐫🗂', callback_data='autofilter')
             ],[
-            InlineKeyboardButton('Connection', callback_data='coct'),
-            InlineKeyboardButton('Extra Mods', callback_data='extra')
+            InlineKeyboardButton('🔮𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐢𝐨𝐧🔮', callback_data='coct'),
+            InlineKeyboardButton('🛍𝐄𝐱𝐭𝐫𝐚 𝐌𝐨𝐝𝐬🛍', callback_data='extra')
             ],[
             InlineKeyboardButton('🏠𝐇𝐨𝐦𝐞🏠', callback_data='start'),
-            InlineKeyboardButton('🏖️ꜱᴛᴀᴛᴜꜱ🏖️', callback_data='stats')
+            InlineKeyboardButton('📊𝐒𝐭𝐚𝐭𝐬📊', callback_data='stats')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -450,7 +450,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "about":
         buttons= [[
             InlineKeyboardButton('🎭𝐔𝐩𝐝𝐚𝐭𝐞𝐬🎭', url='https://t.me/EvaMariaUpdates'),
-            InlineKeyboardButton('❤️ꜱᴏᴜʀᴄᴇ❤️', callback_data='source')
+            InlineKeyboardButton('🖇𝐒𝐨𝐮𝐫𝐜𝐞🖇', callback_data='source')
             ],[
             InlineKeyboardButton('🏠𝐇𝐨𝐦𝐞🏠', callback_data='start'),
             InlineKeyboardButton('🔐𝐂𝐥𝐨𝐬𝐞🔐', callback_data='close_data')
@@ -474,7 +474,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "manuelfilter":
         buttons = [[
             InlineKeyboardButton('🔻𝐁𝐚𝐜𝐤🔻', callback_data='help'),
-            InlineKeyboardButton('⏹️ Buttons', callback_data='button')
+            InlineKeyboardButton('🕹𝐁𝐮𝐭𝐭𝐨𝐧𝐬🕹', callback_data='button')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -515,7 +515,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "extra":
         buttons = [[
             InlineKeyboardButton('🔻𝐁𝐚𝐜𝐤🔻', callback_data='help'),
-            InlineKeyboardButton('👮‍♂️ Admin', callback_data='admin')
+            InlineKeyboardButton('👺𝐀𝐝𝐦𝐢𝐧👺', callback_data='admin')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -536,7 +536,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "stats":
         buttons = [[
             InlineKeyboardButton('🔻𝐁𝐚𝐜𝐤🔻', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
+            InlineKeyboardButton('⏳𝐑𝐞𝐟𝐫𝐞𝐬𝐡 𝐃𝐁⏳', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -555,7 +555,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
             InlineKeyboardButton('🔻𝐁𝐚𝐜𝐤🔻', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
+            InlineKeyboardButton('⏳𝐑𝐞𝐟𝐫𝐞𝐬𝐡 𝐃𝐁⏳', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Media.count_documents()
@@ -751,7 +751,7 @@ async def advantage_spell_chok(msg):
             ] for k, movie in enumerate(movielist)]    
     btn.append(
             [
-                InlineKeyboardButton("⏪ Close", callback_data=f'spolling#{user}#close_spellcheck'),
+                InlineKeyboardButton("🔐𝐂𝐥𝐨𝐬𝐞🔐", callback_data=f'spolling#{user}#close_spellcheck'),
                 InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld')
             ],
         )  
