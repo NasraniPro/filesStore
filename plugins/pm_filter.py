@@ -128,13 +128,13 @@ async def next_page(bot, query):
             [InlineKeyboardButton("🔻𝐁𝐚𝐜𝐤🔻", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"📃 Pages {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages")]
         )
     elif off_set is None:
-        btn.append([InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"), InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append([InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"), InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
                 InlineKeyboardButton("🔻𝐁𝐚𝐜𝐤🔻", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"),
-                InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     try:
@@ -149,20 +149,20 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("തനിക്ക് ഇതിന്റെ ആവിശ്യം ഉണ്ടോന്നു തോന്നുന്നില്ല", show_alert=True)
+        return await query.answer("😌തനിക്ക് ഇതിന്റെ ആവിശ്യം ഉണ്ടോന്നു തോന്നുന്നില്ല😌", show_alert=True)
     if movie_  == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
     if not movies:
         return await query.answer("ഈ ബട്ടണിൽ തൊടാതെ നിങ്ങൾ ആദ്യം മുതൽ സിനിമ ചോദിക്കുക.", show_alert=True)
     movie = movies[(int(movie_))]
-    await query.answer('Checking for Movie in database...')
+    await query.answer('😌താങ്കളുടെ സിനിമ ഉണ്ടോന്ന് പരിശോധിക്കുന്നു...')
     files, offset, total_results = await get_search_results(movie, offset=0, filter=True)
     if files:
         k = (movie, files, offset, total_results)
         await auto_filter(bot, query, k)
     else:
-        k = await query.message.edit('നിങ്ങളുടെ മൂവീസ് ഞങ്ങളുടെ പക്കലില്ലെന്ന് കണ്ടത്തിയിട്ടുണ്ട്. ഉടൻ തന്നെ ഞങ്ങളുടെ @admin ഇതിനൊരു പരിഹാരം കാണുന്നതാണ്. അതുവരെ ക്ഷമിക്കുക.')
+        k = await query.message.edit('😄നിങ്ങളുടെ മൂവീസ് ഞങ്ങളുടെ പക്കലില്ലെന്ന് കണ്ടത്തിയിട്ടുണ്ട്. ഉടൻ തന്നെ ഞങ്ങളുടെ @admin ഇതിനൊരു പരിഹാരം കാണുന്നതാണ്.😢അതുവരെ ക്ഷമിക്കുക.')
         await asyncio.sleep(10)
         await k.delete()
 
@@ -203,7 +203,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         if (st.status == "creator") or (str(userid) in ADMINS):    
             await del_all(query.message, grp_id, title)
         else:
-            await query.answer("You need to be Group Owner or an Auth User to do that!",show_alert=True)
+            await query.answer("താൻ എന്തൊരു വെറുപ്പിക്കലാടോ😌!",show_alert=True)
 
     elif query.data == "delallcancel":
         userid = query.from_user.id
@@ -223,7 +223,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 except:
                     pass
             else:
-                await query.answer("Thats not for you!!",show_alert=True)
+                await query.answer("😜ഇത് താങ്കളുടെ അല്ല😜!!",show_alert=True)
 
 
     elif "groupcb" in query.data:
@@ -377,7 +377,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     file_id=file_id,
                     caption=f_caption
                     )
-                await query.answer('Check PM, I have sent files in pm',show_alert = True)
+                await query.answer('നിങ്ങളുടെ സിനിമ ഈ ബോട്ടിന്റെ പിഎം അയച്ചിട്ടുണ്ട്. ദയവായി ബോട്ട് ഓപ്പൺ ചെയ്യുക',show_alert = True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !',show_alert = True)
         except PeerIdInvalid:
@@ -416,13 +416,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘꜱ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+            InlineKeyboardButton('🎁𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩𝐬🎁', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('🔍ꜱᴇᴀʀᴄʜ🔎', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🎭ᴜᴘᴅᴀᴛᴇꜱ🎭', url='https://t.me/mazhatthullikal')
+            InlineKeyboardButton('🔍𝐒𝐞𝐚𝐫𝐜𝐡🔎', switch_inline_query_current_chat=''),
+            InlineKeyboardButton('🎭𝐔𝐩𝐝𝐚𝐭𝐞𝐬🎭', url='https://t.me/mazhatthullikal')
             ],[
-            InlineKeyboardButton('🕵️ʜᴇʟᴘ🕵️', callback_data='help'),
-            InlineKeyboardButton('😊ᴀʙᴏᴜᴛ😊', callback_data='about')
+            InlineKeyboardButton('🕵️𝐇𝐞𝐥𝐩🕵️', callback_data='help'),
+            InlineKeyboardButton('😊𝐀𝐛𝐨𝐮𝐭😊', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -752,7 +752,7 @@ async def advantage_spell_chok(msg):
     btn.append(
             [
                 InlineKeyboardButton("⏪ Close", callback_data=f'spolling#{user}#close_spellcheck'),
-                InlineKeyboardButton("NEXT ⏩", url='https://t.me/bigmoviesworld')
+                InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld')
             ],
         )  
     k = await msg.reply_video(
