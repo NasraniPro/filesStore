@@ -754,10 +754,9 @@ async def advantage_spell_chok(msg):
             ] for k, movie in enumerate(movielist)]    
     btn.append(
             [
-                InlineKeyboardButton("🔐𝐂𝐥𝐨𝐬𝐞🔐", callback_data=f'spolling#{user}#close_spellcheck')
-            ],
-            [
-                InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld'),       
+                InlineKeyboardButton("🔐𝐂𝐥𝐨𝐬𝐞🔐", callback_data=f'spolling#{user}#close_spellcheck'),
+            ]
+                InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld')       
             ],
         )  
     k = await msg.reply_sticker(
