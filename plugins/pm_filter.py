@@ -716,16 +716,24 @@ async def advantage_spell_chok(msg):
     movielist = list(dict.fromkeys(movielist)) # removing duplicates
     if not movielist:
           
-        k = await msg.reply_video(
-        video= "https://telegra.ph/file/ec5404d035924f1113d8d.mp4",
-        caption=f"<b>📍Hello😜:-</b>"
-        f"<b><a href='https://t.me/kinzanoufal'>👇Admin</a></b>. \n\n"
-        f"<b>നിങ്ങൾ ചോദിച്ച മൂവി വേണമെങ്കിൽ മുകളിലെ വീഡിയോ കണ്ട് അത് പോലെ സ്പെല്ലിങ് തെറ്റാതെ അയക്കുക.</b>😌",
         parse_mode="html",
         reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton('
+                                InlineKeyboardButton('𝙎𝙃𝘼𝙍𝙀', url="https://t.me/share/url?url=https%3A//t.me/share/url%3Furl%3Dhttps%253A//t.me/bigmoviesworld")
+                            ],
+                            [
+                                InlineKeyboardButton('𝙂𝙍𝙊𝙐𝙋', url="https://t.me/bigmoviesworld"),
+                                InlineKeyboardButton('𝙊𝙏𝙏 𝙍𝙀𝙇𝙀𝘼𝙎𝙀', url="https://t.me/bigmoviesworld")
+                            ],
+                            [
+                                InlineKeyboardButton('𝙎𝙐𝙋𝙋𝙊𝙍𝙏', switch_inline_query_current_chat=''),
+                                InlineKeyboardButton('𝘾𝙃𝘼𝙉𝙉𝙀𝙇', callback_data='close_data')
+                            ]
+                        ]
+                    )
+                )         
+        
 #Kanged From @TroJanZheX
 import asyncio
 import re
