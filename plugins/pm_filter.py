@@ -162,28 +162,7 @@ async def advantage_spoll_choker(bot, query):
         k = (movie, files, offset, total_results)
         await auto_filter(bot, query, k)
     else:
-        k = await query.message.edit(
-        video= "https://telegra.ph/file/ec5404d035924f1113d8d.mp4",
-        caption=f"<b>📍Hello:- സുഖമാണോ?</b>"
-        f"<b><a href='https://t.me/kinzanoufal'>👇Admin</a></b>. \n\n"
-        f"<b>നിങ്ങൾ സിനിമ ചോദിക്കുന്നതിനു മുമ്പ് ടൈപ്പ് ചെയ്തത് ശരിയാണോന്ന് പരിശോധിക്കുക.👍അല്ലെങ്കിൽ മുകളിലുള്ള വീഡിയോ കണ്ടു അത് പോലെ അയക്കുക</b>(25 Sec)",
-        parse_mode="html",
-        reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton('𝙎𝙃𝘼𝙍𝙀', url="https://t.me/share/url?url=https%3A//t.me/share/url%3Furl%3Dhttps%253A//t.me/bigmoviesworld")
-                            ],
-                            [
-                                InlineKeyboardButton('𝙂𝙍𝙊𝙐𝙋', url="https://t.me/bigmoviesworld"),
-                                InlineKeyboardButton('𝙊𝙏𝙏 𝙍𝙀𝙇𝙀𝘼𝙎𝙀', url="https://t.me/bigmoviesworld")
-                            ],
-                            [
-                                InlineKeyboardButton('𝙎𝙐𝙋𝙋𝙊𝙍𝙏', url="https://t.me/bigmoviesworld"),
-                                InlineKeyboardButton('𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="https://t.me/bigmoviesworld")
-                            ]
-                        ]
-                    )
-                )    
+        k = await query.message.edit('😄നിങ്ങളുടെ മൂവീസ് ഞങ്ങളുടെ പക്കലില്ലെന്ന് കണ്ടത്തിയിട്ടുണ്ട്. ഉടൻ തന്നെ ഞങ്ങളുടെ @admin ഇതിനൊരു പരിഹാരം കാണുന്നതാണ്.😢അതുവരെ ക്ഷമിക്കുക.')
         await asyncio.sleep(10)
         await k.delete()
 
