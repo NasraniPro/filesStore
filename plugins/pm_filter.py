@@ -755,8 +755,11 @@ async def advantage_spell_chok(msg):
                 InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld')
             ],
         )  
-    k = await query.answer("ചാനലിൽ ജോയിൻ ചെയ്താൽ മാത്രമേ നിങ്ങൾക്ക് മൂവി കിട്ടുള്ളു😒",show_alert=True)
-        return k
+    k = await msg.reply_video(
+        video= "https://telegra.ph/file/ec5404d035924f1113d8d.mp4",
+        caption=f"<b>📍Hello:- സുഖമാണോ?</b>",       
+        reply_markup=InlineKeyboardMarkup(btn))
+    return k
                          
         
                         
