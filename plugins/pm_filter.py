@@ -730,7 +730,7 @@ async def advantage_spell_chok(msg):
                             [
                                 InlineKeyboardButton('🧩𝐆𝐫𝐨𝐮𝐩🧩', url="https://t.me/bigmoviesworld"),
                                 InlineKeyboardButton('☘𝐂𝐡𝐚𝐧𝐧𝐞𝐥☘', url="https://t.me/bigmoviesworld")
-                            ]                            ]
+                            ]                            
                         ]
                     )
                 )         
