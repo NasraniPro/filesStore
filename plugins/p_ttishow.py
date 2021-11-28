@@ -44,14 +44,30 @@ async def save_group(bot, message):
         await message.reply_text(
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
-    else:
+    else:        
+        buttons = [[
+            InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
+            InlineKeyboardButton('📢 Updates', url='https://t.me/TeamEvamaria')
+        ]]
+        reply_markup=InlineKeyboardMarkup(buttons)
         for u in message.new_chat_members:
             if (temp.MELCOW).get('welcome') is not None:
                 try:
                     await (temp.MELCOW['welcome']).delete()
                 except:
                     pass
-            temp.MELCOW['welcome'] = await message.reply(f"<b>Hey , {u.mention}, Welcome to {message.chat.title}</b>")
+            temp.MELCOW['welcome'] = await message.reply_video(
+                                                                video=random.choice(VID),
+                                                                caption=f"<b>📍Hello:- സുഖമാണോ?</b>",
+                                                                reply_markup=reply_markup,
+                                                                parse_mode='html'
+                                                               )
+            
+        await asyncio.sleep(30)      # sleep 30 second
+        await (temp.MELCOW['welcome']).delete()
+
+
+
 
 
 @Client.on_message(filters.command('leave') & filters.user(ADMINS))
