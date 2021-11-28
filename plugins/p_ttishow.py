@@ -43,7 +43,7 @@ async def save_group(bot, message):
             InlineKeyboardButton('🎁𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩𝐬🎁', url="http://t.me/nasrani_bot?startgroup=true")
          ],
          [
-            InlineKeyboardButton('📢 Updates', url='https://t.me/nasariya_update')
+            InlineKeyboardButton('🎭𝐔𝐩𝐝𝐚𝐭𝐞𝐬🎭', url='https://t.me/nasariya_update')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -54,7 +54,7 @@ async def save_group(bot, message):
             InlineKeyboardButton('🎁𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩𝐬🎁', url="http://t.me/nasrani_bot?startgroup=true")
          ],
          [
-            InlineKeyboardButton('📢 Updates', url='https://t.me/bigmoviesworld')
+            InlineKeyboardButton('🎭𝐔𝐩𝐝𝐚𝐭𝐞𝐬🎭', url='https://t.me/bigmoviesworld')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         for u in message.new_chat_members:
@@ -65,7 +65,7 @@ async def save_group(bot, message):
                     pass
             temp.MELCOW['welcome'] = await message.reply_video(
                                                                 video=random.choice(VID),
-                                                                caption=f"<b>📍Hello:- സുഖമാണോ?</b>",
+                                                                caption=f"<b>{u.mention}, 𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐓𝐨 {message.chat.title}</b>",
                                                                 reply_markup=reply_markup,
                                                                 parse_mode='html'
                                                                )
