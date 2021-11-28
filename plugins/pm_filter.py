@@ -726,7 +726,7 @@ async def advantage_spell_chok(msg):
                                 InlineKeyboardButton('🎁𝐀𝐝𝐝 𝐌𝐞 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐆𝐫𝐨𝐮𝐩𝐬🎁', url="http://t.me/nasrani_bot?startgroup=true")
                             ],
                             [
-                                InlineKeyboardButton('🧩𝐆𝐫𝐨𝐮𝐩🧩', url="https://t.me/bigmoviesworld"),
+                                InlineKeyboardButton('🧩𝐆𝐫𝐨𝐮𝐩🧩', url="https://t.me/nasrani_update"),
                                 InlineKeyboardButton('☘𝐂𝐡𝐚𝐧𝐧𝐞𝐥☘', url="https://t.me/bigmoviesworld")
                             ]                            
                         ]
@@ -749,7 +749,7 @@ async def advantage_spell_chok(msg):
     btn.append(
             [
                 InlineKeyboardButton("🔐𝐂𝐥𝐨𝐬𝐞🔐", callback_data=f'spolling#{user}#close_spellcheck'),
-                InlineKeyboardButton("🔺𝐍𝐞𝐱𝐭🔺", url='https://t.me/bigmoviesworld')       
+                InlineKeyboardButton("☘𝐂𝐡𝐚𝐧𝐧𝐞𝐥☘", url='https://t.me/bigmoviesworld')       
             ],
         )  
     k = await msg.reply_sticker(
