@@ -109,14 +109,11 @@ async def start(client, message):
             logger.exception(e)
             f_caption=f_caption
     if f_caption is None:
-        f_caption = f"{files.file_name}"
-        btn = [
-            [
-                InlineKeyboardButton(
-                    "📩𝐉𝐨𝐢𝐧 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥📩", url=invite_link.invite_link
-                )
-            ]
-        ]
+        buttons = [
+                    [
+                        InlineKeyboardButton('💌 SUBSCRIBE ✅', url=google.com')
+                    ]
+                    ]
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
