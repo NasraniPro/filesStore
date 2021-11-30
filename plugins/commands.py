@@ -120,6 +120,7 @@ async def start(client, message):
                     [
                         InlineKeyboardButton('💌 SUBSCRIBE ✅', url='https://t.me/bigmoviesworld')
                         InlineKeyboardButton('💌 SUBSCRIBE ✅', url='https://t.me/bigmoviesworld')
+                    ],
                     [
                         InlineKeyboardButton('💌 SUBSCRIBE ✅', url='https://t.me/bigmoviesworld')
                         InlineKeyboardButton('💌 SUBSCRIBE ✅', url='https://t.me/bigmoviesworld')
