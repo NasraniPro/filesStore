@@ -136,7 +136,7 @@ async def start(client, message):
         parse_mode="markdown"
         )
     
-   except Exception as err:
+ 
    await message.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
    elif len(message.command) > 1 and message.command[1] == 'subscribe':
        invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
