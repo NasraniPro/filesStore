@@ -49,7 +49,7 @@ async def start(client, message):
         await message.reply_sticker(
             sticker=random.choice(STC),
             reply_markup=reply_markup,
-            parse_mode='html'
+            
         )
         return
     if AUTH_CHANNEL and not await is_subscribed(client, message):
@@ -89,7 +89,7 @@ async def start(client, message):
         await message.reply_sticker(
             sticker=random.choice(STC),
             reply_markup=reply_markup,
-            parse_mode='html'
+            
         )
         return
     file_id = message.command[1]
