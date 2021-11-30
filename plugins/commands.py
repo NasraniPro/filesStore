@@ -123,10 +123,8 @@ async def start(client, message):
         caption=f_caption,
         reply_markup=InlineKeyboardMarkup(btn),
         parse_mode="markdown"
-            )
         )
-                    
-                    
+                                                
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
