@@ -125,7 +125,7 @@ async def start(client, message):
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup(btn),
+        reply_markup=InlineKeyboardMarkup(buttons),
         parse_mode="markdown"
         )
                                                 
