@@ -108,14 +108,6 @@ async def start(client, message):
         except Exception as e:
             logger.exception(e)
             f_caption=f_caption
-    f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
-        except Exception as e:
-            logger.exception(e)
-            f_caption=f_caption
-    f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
-        except Exception as e:
-            logger.exception(e)
-            f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
     await client.send_cached_media(
