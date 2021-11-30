@@ -47,7 +47,7 @@ async def start(client, message):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_sticker(
-            sticker=random.choice(STICKER),
+            sticker=random.choice(STC),
             reply_markup=reply_markup,
             parse_mode='html'
         )
@@ -87,7 +87,7 @@ async def start(client, message):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_sticker(
-            sticker=random.choice(STICKER),
+            sticker=random.choice(STC),
             reply_markup=reply_markup,
             parse_mode='html'
         )
