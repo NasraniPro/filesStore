@@ -34,7 +34,7 @@ async def not_joined(client: Client, message: Message):
         [
             InlineKeyboardButton(
                 "Join Channel",
-                url = client.invitelink)
+                url = invite_link.invite_link
         ]
     ]
     try:
@@ -42,7 +42,7 @@ async def not_joined(client: Client, message: Message):
             [
                 InlineKeyboardButton(
                     text = 'Try Again',
-                    url = f"https://t.me/{client.username}?start={message.command[1]}"
+                    url = callback_data=f"checksub#{message.command[1]}")])
                 )
             ]
         )
