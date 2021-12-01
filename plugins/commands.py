@@ -122,7 +122,7 @@ async def start(client, message):
         f_caption = f"{files.file_name}"
     buttons = [
                     [
-                        InlineKeyboardButton('💌 SUBSCRIBE ✅', callback_data=f"checksub#{message.command[1]}")])
+                        InlineKeyboardButton('💌 SUBSCRIBE ✅', callback_data=f"groupcb:{groupid}:{title}:{act}")
                     ],
                     [
                         InlineKeyboardButton('💌 SUBSCRIBE ✅', url='https://t.me/bigmoviesworld'),
