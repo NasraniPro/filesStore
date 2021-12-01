@@ -137,24 +137,33 @@ async def start(client, message):
         )
        
         
-    if AUTH_CHANNEL and not await is_subscribed(client, message):
-        try:
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
-        except ChatAdminRequired:
-            logger.error("Make sure Bot is admin in Forcesub channel")
-            return
-        btn = [
-            [
-                InlineKeyboardButton(
-                    "📩𝐉𝐨𝐢𝐧📩", url=invite_link.invite_link
-                )
-            ]
-        ]
-
-        if message.command[1] != "subscribe":
-            btn.append([InlineKeyboardButton("📥𝐓𝐫𝐲📥", callback_data=f"checksub#{message.command[1]}")])
-
-        
+    except ChatAdminRequired:
+            await message.reply_text(f"Something went wrong!\n\n**Error:** `{err}`")
+    elif len(message.command) > 1 and message.command[1] == 'subscribe':
+        invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
+        await bot.send_message(
+            chat_id=message.from_user.id,
+            text="**Please Join My Updates Channel to use this Bot!**",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("📢 Join Updates Channel 📢", url=invite_link.invite_link)
+                    ]
+                ]
+            )
+        )
+    else:
+        await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
+       reply_markup=InlineKeyboardMarkup(
+                [[
+                InlineKeyboardButton("📺 𝗦𝗘𝗔𝗥𝗖𝗛 𝗛𝗘𝗥𝗘 🔍", switch_inline_query_current_chat='')
+                ],[
+                InlineKeyboardButton("📥 𝗠𝗢𝗩𝗜𝗘𝗦 📥", url='https://t.me/malayalammoviesmms'),
+                InlineKeyboardButton("💌 𝗦𝗨𝗕𝗦𝗖𝗥𝗜𝗕𝗘 💌", url='https://youtu.be/2tek7Y5CEF4'),
+                ]]
+            )
+        )
+        StopPropagation
 
 
 
