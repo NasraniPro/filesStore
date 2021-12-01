@@ -137,7 +137,17 @@ async def start(client, message):
         )
        
         
-    await bot.send_message(
+        return 400
+    except UserNotParticipant:
+        try:
+            invite_link = await bot.create_chat_invite_link(chat_id=(int(Config.UPDATES_CHANNEL) if Config.UPDATES_CHANNEL.startswith("-100") else Config.UPDATES_CHANNEL))
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+            invite_link = await bot.create_chat_invite_link(chat_id=(int(Config.UPDATES_CHANNEL) if Config.UPDATES_CHANNEL.startswith("-100") else Config.UPDATES_CHANNEL))
+        except Exception as err:
+            print(f"Unable to do Force Subscribe to {Config.UPDATES_CHANNEL}\n\nError: {err}")
+            return 200
+        await bot.send_message(
             chat_id=cmd.from_user.id,
             text="**Please Join My Updates Channel to use this Bot!**\n\n"
                  "Due to Overload, Only Channel Subscribers can use the Bot!",
@@ -153,6 +163,17 @@ async def start(client, message):
             ),
             parse_mode="markdown"
         )
+        return 400
+    except Exception:
+        await bot.send_message(
+            chat_id=cmd.from_user.id,
+            text="Something went Wrong. Contact my [Support Group](https://t.me/DevsZone).",
+            parse_mode="markdown",
+            disable_web_page_preview=True
+        )
+        return 400
+    return 200
+
             
 
 
