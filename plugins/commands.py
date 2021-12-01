@@ -30,22 +30,16 @@ logger = logging.getLogger(__name__)
 
 @Client.on_message(filters.command("start"))
 async def not_joined(client: Client, message: Message):
-    buttons = [
-        [
-            InlineKeyboardButton(
-                "Join Channel",
-                url = invite_link.invite_link
-        ]
-    ]
-    try:
-        buttons.append(
+    btn = [
             [
                 InlineKeyboardButton(
-                    text = 'Try Again',
-                    url = callback_data=f"checksub#{message.command[1]}")])
+                    "📩𝐉𝐨𝐢𝐧 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥📩", url=invite_link.invite_link
                 )
             ]
-        )
+        ]
+    try:
+        btn.append([InlineKeyboardButton("📥𝐓𝐫𝐲 𝐀𝐠𝐚𝐢𝐧📥", callback_data=f"checksub#{message.command[1]}")])
+   
     except IndexError:
         pass
 
