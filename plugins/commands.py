@@ -137,8 +137,7 @@ async def start(client, message):
         )
        
         
-    
-            await bot.send_message(
+    await bot.send_message(
             chat_id=cmd.from_user.id,
             text="**Please Join My Updates Channel to use this Bot!**\n\n"
                  "Due to Overload, Only Channel Subscribers can use the Bot!",
@@ -154,6 +153,7 @@ async def start(client, message):
             ),
             parse_mode="markdown"
         )
+            
 
 
 
