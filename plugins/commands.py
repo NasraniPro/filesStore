@@ -1,13 +1,3 @@
-import os
-import asyncio
-from pyrogram import Client, filters, __version__
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
-
-from bot import Bot
-from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON
-from helper_func import subscribed, encode, decode, get_messages
-from database.sql import add_user, query_msg, full_userbase
 
 
 
@@ -29,39 +19,7 @@ import re
 logger = logging.getLogger(__name__)
 
 @Client.on_message(filters.command("start"))
-async def not_joined(client: Client, message: Message):
-    btn = [
-            [
-                InlineKeyboardButton(
-                    "📩𝐉𝐨𝐢𝐧 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥📩", url=invite_link.invite_link
-                )
-            ]
-        ]
-    try:
-        btn.append([InlineKeyboardButton("📥𝐓𝐫𝐲 𝐀𝐠𝐚𝐢𝐧📥", callback_data=f"checksub#{message.command[1]}")])
-   
-    except IndexError:
-        pass
 
-    await message.reply(
-        text = FORCE_MSG.format(
-                first = message.from_user.first_name,
-                last = message.from_user.last_name,
-                username = None if not message.from_user.username else '@' + message.from_user.username,
-                mention = message.from_user.mention,
-                id = message.from_user.id
-            ),
-        reply_markup = InlineKeyboardMarkup(buttons),
-        quote = True,
-        disable_web_page_preview = True
-    )
-
-
-
-
-
-
-      else:
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
