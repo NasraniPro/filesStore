@@ -122,7 +122,7 @@ async def start(client, message):
         f_caption = f"{files.file_name}"
     buttons = [
                     [
-                        InlineKeyboardButton('💌 SUBSCRIBE ✅', url=f'https://telegram.me/share/url?url={file_link}')
+                        InlineKeyboardButton('💌 SUBSCRIBE ✅', url=f'https://t.me/{temp.U_NAME}?start={file_id}')
                     ],
                     [
                         InlineKeyboardButton('💌 SUBSCRIBE ✅', url='https://t.me/bigmoviesworld'),
