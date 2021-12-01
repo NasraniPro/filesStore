@@ -138,32 +138,22 @@ async def start(client, message):
        
         
     
-            await message.reply(
-    elif len(message.command) > 1 and message.command[1] == 'subscribe':
-        invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
-        await bot.send_message(
-            chat_id=message.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            await bot.send_message(
+            chat_id=cmd.from_user.id,
+            text="**Please Join My Updates Channel to use this Bot!**\n\n"
+                 "Due to Overload, Only Channel Subscribers can use the Bot!",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("📢 Join Updates Channel 📢", url=invite_link.invite_link)
+                        InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                    ],
+                    [
+                        InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshForceSub")
                     ]
                 ]
-            )
+            ),
+            parse_mode="markdown"
         )
-    else:
-        await message.reply(script.START_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup)
-       reply_markup=InlineKeyboardMarkup(
-                [[
-                InlineKeyboardButton("📺 𝗦𝗘𝗔𝗥𝗖𝗛 𝗛𝗘𝗥𝗘 🔍", switch_inline_query_current_chat='')
-                ],[
-                InlineKeyboardButton("📥 𝗠𝗢𝗩𝗜𝗘𝗦 📥", url='https://t.me/malayalammoviesmms'),
-                InlineKeyboardButton("💌 𝗦𝗨𝗕𝗦𝗖𝗥𝗜𝗕𝗘 💌", url='https://youtu.be/2tek7Y5CEF4'),
-                ]]
-            )
-        )
-        StopPropagation
 
 
 
