@@ -1,4 +1,19 @@
 import os
+import asyncio
+from pyrogram import Client, filters, __version__
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
+
+from bot import Bot
+from config import ADMINS, FORCE_MSG, START_MSG, OWNER_ID, CUSTOM_CAPTION, DISABLE_CHANNEL_BUTTON
+from helper_func import subscribed, encode, decode, get_messages
+from database.sql import add_user, query_msg, full_userbase
+
+
+
+
+
+import os
 import logging
 import random
 import asyncio
@@ -137,43 +152,40 @@ async def start(client, message):
         )
        
         
-        return 400
-    except UserNotParticipant:
-        try:
-            invite_link = await bot.create_chat_invite_link(chat_id=(int(Config.UPDATES_CHANNEL) if Config.UPDATES_CHANNEL.startswith("-100") else Config.UPDATES_CHANNEL))
-        except FloodWait as e:
-            await asyncio.sleep(e.x)
-            invite_link = await bot.create_chat_invite_link(chat_id=(int(Config.UPDATES_CHANNEL) if Config.UPDATES_CHANNEL.startswith("-100") else Config.UPDATES_CHANNEL))
-        except Exception as err:
-            print(f"Unable to do Force Subscribe to {Config.UPDATES_CHANNEL}\n\nError: {err}")
-            return 200
-        await bot.send_message(
-            chat_id=cmd.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**\n\n"
-                 "Due to Overload, Only Channel Subscribers can use the Bot!",
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
-                    ],
-                    [
-                        InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshForceSub")
-                    ]
-                ]
-            ),
-            parse_mode="markdown"
+        
+@Client.on_message(filters.command('start') & filters.private)
+async def not_joined(client: Client, message: Message):
+    buttons = [
+        [
+            InlineKeyboardButton(
+                "Join Channel",
+                url = client.invitelink)
+        ]
+    ]
+    try:
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text = 'Try Again',
+                    url = f"https://t.me/{client.username}?start={message.command[1]}"
+                )
+            ]
         )
-        return 400
-    except Exception:
-        await bot.send_message(
-            chat_id=cmd.from_user.id,
-            text="Something went Wrong. Contact my [Support Group](https://t.me/DevsZone).",
-            parse_mode="markdown",
-            disable_web_page_preview=True
-        )
-        return 400
-    return 200
+    except IndexError:
+        pass
 
+    await message.reply(
+        text = FORCE_MSG.format(
+                first = message.from_user.first_name,
+                last = message.from_user.last_name,
+                username = None if not message.from_user.username else '@' + message.from_user.username,
+                mention = message.from_user.mention,
+                id = message.from_user.id
+            ),
+        reply_markup = InlineKeyboardMarkup(buttons),
+        quote = True,
+        disable_web_page_preview = True
+    )
             
 
 
