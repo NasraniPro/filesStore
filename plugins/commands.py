@@ -59,7 +59,9 @@ async def not_joined(client: Client, message: Message):
 
 
 
-  else:
+
+
+else:
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
