@@ -83,6 +83,10 @@ class Bot(Client):
         self.LOGGER(__name__).info(f"Bot Running..!\n\nCreated by 𝘾𝙤𝙙𝙚 𝕏 𝘽𝙤𝙩𝙯\nhttps://t.me/CodeXBotz")
         self.username = usr_bot_me.username
 
+    
+    async def stop(self, *args):
+        await super().stop()
+        self.LOGGER(__name__).info("Bot stopped.")
 
     async def stop(self, *args):
         await super().stop()
