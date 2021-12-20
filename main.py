@@ -1,3 +1,3 @@
-from bot import Bot
+from b import Bot
 
 Bot().run()
