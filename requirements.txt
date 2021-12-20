@@ -12,3 +12,13 @@ youtube_dl
 youtube_search_python
 youtube_search
 ffmpeg-python
+
+
+# --- For-Bot-Working --------- #
+pyrogram
+TgCrypto
+Pyromod
+# --- For-Database ------------ #
+sqlalchemy~=1.3.23
+psycopg2-binary
+feedparser
